@@ -23,14 +23,14 @@ class SearchBar extends Component
 
     onFormSubmit(event){
         event.preventDefault();
-        
+
+        this.props.fetchWeather(this.state.term);
+
         this.setState({term: ""});
     }
 
     render(){
         return (
-           <div className='row text-center'>
-               <div className='col-md-6'>
                    <form className='input-group' onSubmit={ this.onFormSubmit }>
                        <input className='form-control' placeholder='Enter City'
                            onChange={ this.onInputChange }
@@ -39,8 +39,6 @@ class SearchBar extends Component
                             <button className='btn btn-primary'>Search</button>
                         </span>
                    </form>
-               </div>
-           </div>
         );
     }
 }
